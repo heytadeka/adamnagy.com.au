@@ -1,3 +1,10 @@
+export const hero = {
+  primary: ["I TURN ATTENTION", "INTO REVENUE."],
+  secondary: ["AND IDEAS INTO", "WORKING PRODUCTS."],
+  descriptorName: "ADAM NAGY",
+  descriptor: "Performance marketing, ecommerce, content strategy and AI development.",
+};
+
 export const stats = [
   { value: 10, decimals: 0, prefix: "", suffix: "x+", label: "ROAS", accent: false },
   {
@@ -69,9 +76,9 @@ export const quote = {
 
 export const siteConfig = {
   name: "Adam Nagy",
-  title: "Adam Nagy — Who makes ads work?",
+  title: "Adam Nagy — I turn attention into revenue.",
   description:
-    "Performance marketer & ecommerce manager. 10+ years, 5 brands, $11.5M in ad spend managed. Open to the right in-house role.",
+    "Performance marketing, ecommerce, content strategy and AI development. Open to the right in-house role.",
   email: "adam.nagy.mm@gmail.com",
   location: "Sydney, Australia",
   cvHref: "/Adam-Nagy-CV.pdf",

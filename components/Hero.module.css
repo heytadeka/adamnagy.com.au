@@ -89,10 +89,10 @@
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: 120px;
+  bottom: 100px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
   pointer-events: none;
   will-change: transform, opacity;
 }
@@ -111,55 +111,62 @@
   font-weight: 400;
 }
 
-.wideWhoMakes {
+.headingBlockRight {
   position: absolute;
-  top: 36%;
+  top: 42%;
   right: calc(50% + 3vw);
   transform: translateY(-50%);
-}
-
-.wideAdsWork {
-  position: absolute;
-  top: 36%;
-  left: calc(50% + 21vh);
-  transform: translateY(-50%);
-}
-
-.wideByline {
-  position: absolute;
-  top: calc(36% + min(6vw, 9.5vh));
-  right: calc(50% + 3vw);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 14px;
 }
 
-.headlineWord {
+.headingBlockLeft {
+  position: absolute;
+  top: 42%;
+  left: calc(50% + 21vh);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headlineLine {
   margin: 0;
   font-family: var(--font-anton), sans-serif;
   font-weight: 400;
-  font-size: min(8vw, 13vh);
-  line-height: 0.9;
+  font-size: min(3.7vw, 6.1vh);
+  line-height: 1.05;
   letter-spacing: 0.005em;
   color: var(--text);
   white-space: nowrap;
 }
 
-.byline {
-  font-family: var(--font-anton), sans-serif;
-  font-size: min(3.4vw, 5.6vh);
-  line-height: 1;
-  letter-spacing: 0.14em;
-  color: var(--accent);
+/* Sits below .headingBlockRight: that block is vertically centered on
+   `top`, so its own bottom edge is `top + half its rendered height`
+   (font-size × line-height × line-count, halved) — offset from there. */
+.descriptor {
+  position: absolute;
+  top: calc(42% + min(3.7vw, 6.1vh) * 1.05 + clamp(18px, 2.6vw, 32px));
+  right: calc(50% + 3vw);
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 300;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: right;
 }
 
-.subtitle {
+.nameTag {
+  display: block;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 11px;
   letter-spacing: 0.14em;
-  color: rgba(242, 239, 233, 0.7);
-  text-align: right;
+  color: var(--accent);
+  margin-bottom: 6px;
 }
 
 .narrowHeading {
@@ -168,8 +175,8 @@
   flex-direction: column;
   font-family: var(--font-anton), sans-serif;
   font-weight: 400;
-  font-size: min(19vw, 120px);
-  line-height: 0.9;
+  font-size: min(10.5vw, 60px);
+  line-height: 1.08;
   color: var(--text);
 }
 
@@ -177,18 +184,24 @@
   display: block;
 }
 
-.bylineNarrow {
-  font-family: var(--font-anton), sans-serif;
-  font-size: min(9vw, 44px);
-  letter-spacing: 0.14em;
-  color: var(--accent);
+.descriptorNarrow {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
-.subtitleNarrow {
+.nameTagNarrow {
+  display: block;
   font-family: var(--font-geist-mono), monospace;
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: rgba(242, 239, 233, 0.7);
+  color: var(--accent);
+  margin-bottom: 6px;
 }
 
 .bottomBar {
@@ -275,40 +288,23 @@
   }
 }
 
-@keyframes heroClip {
-  from {
-    clip-path: inset(0 0 100% 0);
-    transform: translateY(40%);
-  }
-  to {
-    clip-path: inset(0 0 0% 0);
-    transform: none;
-  }
-}
-
 .fadeIn300 {
   animation: heroFadeUp 1.4s var(--ease) 300ms both;
 }
-.fadeIn500 {
-  animation: heroFadeUp 1.4s var(--ease) 500ms both;
+.fadeIn450 {
+  animation: heroFadeUp 1.4s var(--ease) 450ms both;
 }
-.fadeIn520 {
-  animation: heroFadeUp 1.4s var(--ease) 520ms both;
+.fadeIn600 {
+  animation: heroFadeUp 1.4s var(--ease) 600ms both;
 }
-.fadeIn1300 {
-  animation: heroFadeUp 1.4s var(--ease) 1300ms both;
+.fadeIn750 {
+  animation: heroFadeUp 1.4s var(--ease) 750ms both;
 }
-.fadeIn1500 {
-  animation: heroFadeUp 1.4s var(--ease) 1500ms both;
+.fadeIn1400 {
+  animation: heroFadeUp 1.4s var(--ease) 1400ms both;
 }
 .fadeIn1800 {
   animation: heroFadeUp 1.4s var(--ease) 1800ms both;
-}
-.clipIn1000 {
-  animation: heroClip 1.2s var(--ease) 1000ms both;
-}
-.clipIn1100 {
-  animation: heroClip 1.2s var(--ease) 1100ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -326,20 +322,14 @@
     transform: translateX(-14px);
   }
   .fadeIn300,
-  .fadeIn500,
-  .fadeIn520,
-  .fadeIn1300,
-  .fadeIn1500,
+  .fadeIn450,
+  .fadeIn600,
+  .fadeIn750,
+  .fadeIn1400,
   .fadeIn1800 {
     animation: none;
     opacity: 1;
     transform: none;
     filter: none;
-  }
-  .clipIn1000,
-  .clipIn1100 {
-    animation: none;
-    clip-path: none;
-    transform: none;
   }
 }

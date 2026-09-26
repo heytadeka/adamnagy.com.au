@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { hero } from "@/lib/content";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -20,38 +21,52 @@ export function Hero() {
       <div className={styles.bottomFade} aria-hidden="true" />
       <div data-intro-pane="" className={styles.glassPane} aria-hidden="true" />
 
-      {/* Desktop layout: headline split across the portrait, ≥820px */}
+      {/* Desktop layout: two complete thoughts either side of the portrait, ≥820px */}
       <div data-hero-text="" className={styles.heroTextWide}>
         <h1 className={styles.wideHeading}>
-          <div className={styles.wideWhoMakes}>
-            <div className={`${styles.headlineWord} ${styles.fadeIn300}`}>WHO MAKES</div>
+          <div className={styles.headingBlockRight}>
+            <div className={`${styles.headlineLine} ${styles.fadeIn300}`}>
+              {hero.primary[0]}
+            </div>
+            <div className={`${styles.headlineLine} ${styles.fadeIn450}`}>
+              {hero.primary[1]}
+            </div>
           </div>
-          <div className={styles.wideAdsWork}>
-            <div className={`${styles.headlineWord} ${styles.fadeIn520}`}>ADS WORK?</div>
+          <div className={styles.headingBlockLeft}>
+            <div className={`${styles.headlineLine} ${styles.fadeIn600}`}>
+              {hero.secondary[0]}
+            </div>
+            <div className={`${styles.headlineLine} ${styles.fadeIn750}`}>
+              {hero.secondary[1]}
+            </div>
           </div>
         </h1>
-        <div className={styles.wideByline}>
-          <div className={`${styles.byline} ${styles.clipIn1100}`}>ADAM NAGY</div>
-          <div className={`${styles.subtitle} ${styles.fadeIn1500}`}>
-            PERFORMANCE MARKETING &amp; ECOMMERCE
-          </div>
-        </div>
+        <p className={`${styles.descriptor} ${styles.fadeIn1400}`}>
+          <span className={styles.nameTag}>{hero.descriptorName}</span>
+          {hero.descriptor}
+        </p>
       </div>
 
       {/* Mobile layout: stacked bottom-left, <820px */}
       <div data-hero-text="" className={styles.heroTextNarrow}>
         <h1 className={styles.narrowHeading}>
           <span className={`${styles.headlineWordNarrow} ${styles.fadeIn300}`}>
-            WHO MAKES
+            {hero.primary[0]}
           </span>
-          <span className={`${styles.headlineWordNarrow} ${styles.fadeIn500}`}>
-            ADS WORK?
+          <span className={`${styles.headlineWordNarrow} ${styles.fadeIn450}`}>
+            {hero.primary[1]}
+          </span>
+          <span className={`${styles.headlineWordNarrow} ${styles.fadeIn600}`}>
+            {hero.secondary[0]}
+          </span>
+          <span className={`${styles.headlineWordNarrow} ${styles.fadeIn750}`}>
+            {hero.secondary[1]}
           </span>
         </h1>
-        <div className={`${styles.bylineNarrow} ${styles.clipIn1000}`}>ADAM NAGY</div>
-        <div className={`${styles.subtitleNarrow} ${styles.fadeIn1300}`}>
-          PERFORMANCE MARKETING &amp; ECOMMERCE
-        </div>
+        <p className={`${styles.descriptorNarrow} ${styles.fadeIn1400}`}>
+          <span className={styles.nameTagNarrow}>{hero.descriptorName}</span>
+          {hero.descriptor}
+        </p>
       </div>
 
       <div className={`${styles.bottomBar} ${styles.fadeIn1800}`}>

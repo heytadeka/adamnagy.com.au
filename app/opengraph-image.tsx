@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { loadAntonFont } from "@/lib/og-font";
+import { hero } from "@/lib/content";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -39,9 +40,10 @@ export default async function OpengraphImage() {
         >
           AN
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-          <div style={{ fontSize: 92, lineHeight: 0.95, letterSpacing: "0.005em" }}>
-            WHO MAKES ADS WORK?
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div style={{ display: "flex", flexDirection: "column", fontSize: 54, lineHeight: 1.08, letterSpacing: "0.005em" }}>
+            <span>{hero.primary.join(" ")}</span>
+            <span>{hero.secondary.join(" ")}</span>
           </div>
           <div
             style={{
@@ -49,14 +51,14 @@ export default async function OpengraphImage() {
               alignItems: "center",
               gap: 20,
               fontFamily: "sans-serif",
-              fontSize: 22,
+              fontSize: 20,
               letterSpacing: "0.14em",
               color: "#f4a261",
             }}
           >
-            <span>ADAM NAGY</span>
-            <span style={{ color: "rgba(242,239,233,0.6)" }}>
-              PERFORMANCE MARKETING &amp; ECOMMERCE
+            <span>{hero.descriptorName}</span>
+            <span style={{ color: "rgba(242,239,233,0.6)", letterSpacing: "normal" }}>
+              {hero.descriptor}
             </span>
           </div>
         </div>
