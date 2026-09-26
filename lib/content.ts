@@ -5,6 +5,19 @@ export const hero = {
   descriptor: "Performance marketing, ecommerce, content strategy and AI development.",
 };
 
+export const whoIAm = {
+  headline: ["THE CV SHOWS WHAT I'VE DONE.", "THIS IS HOW I THINK."],
+  bio: [
+    "I'm a performance marketer and content strategist with more than 12 years of experience growing consumer brands. I'm a brand owner too.",
+    "Today, I own paid media, content direction and email strategy across five brands in Australia, the US, UK and New Zealand. I work across the full picture: budgets, creative, customer journeys and the systems behind them.",
+    "I love finding bottlenecks and using AI to remove them.",
+    "I'm comfortable building lightweight internal apps, CRM tools and task-specific workflows through AI-assisted development, then integrating them into the everyday operation of the business.",
+    "That could mean replacing a messy spreadsheet, systemising an approval process or creating a custom tool around the way a team already works.",
+    "The value is practical: fewer manual steps, clearer processes and more time for work that moves the business forward.",
+  ],
+  stack: "META · GOOGLE · KLAVIYO · SHOPIFY · CLAUDE CODE",
+};
+
 export const stats = [
   { value: 10, decimals: 0, prefix: "", suffix: "x+", label: "ROAS", accent: false },
   {
