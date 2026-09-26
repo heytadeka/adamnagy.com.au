@@ -22,12 +22,14 @@ export function Hero() {
 
       {/* Desktop layout: headline split across the portrait, ≥820px */}
       <div data-hero-text="" className={styles.heroTextWide}>
-        <div className={styles.wideWhoMakes}>
-          <h1 className={`${styles.headlineWord} ${styles.fadeIn300}`}>WHO MAKES</h1>
-        </div>
-        <div className={styles.wideAdsWork}>
-          <div className={`${styles.headlineWord} ${styles.fadeIn520}`}>ADS WORK?</div>
-        </div>
+        <h1 className={styles.wideHeading}>
+          <div className={styles.wideWhoMakes}>
+            <div className={`${styles.headlineWord} ${styles.fadeIn300}`}>WHO MAKES</div>
+          </div>
+          <div className={styles.wideAdsWork}>
+            <div className={`${styles.headlineWord} ${styles.fadeIn520}`}>ADS WORK?</div>
+          </div>
+        </h1>
         <div className={styles.wideByline}>
           <div className={`${styles.byline} ${styles.clipIn1100}`}>ADAM NAGY</div>
           <div className={`${styles.subtitle} ${styles.fadeIn1500}`}>
