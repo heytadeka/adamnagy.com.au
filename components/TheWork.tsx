@@ -26,7 +26,7 @@ export function TheWork() {
               <article className={styles.card}>
                 <div className={styles.cardMetaRow}>
                   <span>
-                    {item.index} — {item.kicker}
+                    {item.index} · {item.kicker}
                   </span>
                   <span>{item.meta}</span>
                 </div>
