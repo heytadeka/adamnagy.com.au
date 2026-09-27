@@ -15,22 +15,29 @@ export const whoIAm = {
 };
 
 export const stats = [
-  { value: 10, decimals: 0, prefix: "", suffix: "x+", label: "ROAS", accent: false },
   {
-    value: 11.5,
+    value: 7.5,
     decimals: 1,
     prefix: "$",
     suffix: "M",
-    label: "AD SPEND MANAGED",
+    label: "PAID MEDIA MANAGED",
     accent: true,
   },
-  { value: 5, decimals: 0, prefix: "", suffix: "", label: "BRANDS", accent: false },
+  { value: 12, decimals: 0, prefix: "", suffix: "+", label: "YEARS IN GROWTH", accent: false },
   {
-    value: 10,
+    value: 2,
     decimals: 0,
     prefix: "",
-    suffix: "+",
-    label: "YEARS IN THE WORK",
+    suffix: "",
+    label: "COUNTRIES CALLED HOME",
+    accent: false,
+  },
+  {
+    value: 2,
+    decimals: 0,
+    prefix: "",
+    suffix: "",
+    label: "SMALL HUMANS. MY BIGGEST MOTIVATION.",
     accent: false,
   },
 ] as const;
