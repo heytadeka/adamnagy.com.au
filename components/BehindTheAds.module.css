@@ -1,0 +1,157 @@
+.header {
+  position: relative;
+  z-index: 1;
+  padding: clamp(140px, 22vh, 200px) clamp(20px, 5vw, 72px) clamp(40px, 6vh, 64px);
+}
+
+.blobAccent {
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 560px;
+  max-height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in oklch, var(--accent) 30%, transparent), transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 32px);
+}
+
+.intro {
+  margin: 0;
+  font-family: var(--font-anton), sans-serif;
+  font-weight: 400;
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(40px, 6vh, 64px) clamp(20px, 5vw, 72px) clamp(100px, 16vh, 180px);
+}
+
+.blobWhite {
+  position: absolute;
+  top: 30%;
+  right: 4%;
+  width: 32vw;
+  height: 32vw;
+  max-width: 460px;
+  max-height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.09), transparent 65%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.body .inner {
+  gap: clamp(40px, 6vw, 64px);
+}
+
+.beat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.beatTag {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.beatText {
+  margin: 0;
+  max-width: 62ch;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.milestoneText {
+  margin: 0;
+  max-width: 20ch;
+  font-family: var(--font-anton), sans-serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+
+.milestoneAside {
+  margin: 0;
+  max-width: 48ch;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--text-mono);
+}
+
+.closerBlock {
+  display: flex;
+}
+
+.closerText {
+  margin: 0;
+  max-width: 28ch;
+  font-family: var(--font-anton), sans-serif;
+  font-weight: 400;
+  font-size: clamp(26px, 3.4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+
+.accentText {
+  color: var(--accent);
+}
+
+.pageFooter {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 24px clamp(20px, 5vw, 72px) clamp(48px, 8vh, 96px);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-mono-dim);
+}
+
+.backLink {
+  color: var(--text-mono-dim);
+  transition: color 0.3s;
+}
+
+.backLink:hover {
+  color: var(--accent);
+}

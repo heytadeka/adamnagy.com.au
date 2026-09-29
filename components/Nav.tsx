@@ -1,29 +1,52 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Nav.module.css";
 
-const LINKS = [
-  { id: "who", label: "WHO I AM", href: "#who" },
-  { id: "work", label: "THE WORK", href: "#work" },
-  { id: "video", label: "THE VIDEO", href: "#video" },
-  { id: "talk", label: "LET'S TALK", href: "#talk" },
+const SCROLL_LINKS = [
+  { id: "who", label: "WHO I AM" },
+  { id: "work", label: "THE WORK" },
+  { id: "video", label: "THE VIDEO" },
 ];
 
 export function Nav() {
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const homeHash = (hash: string) => (onHome ? `#${hash}` : `/#${hash}`);
+
   return (
     <nav data-nav="" className={styles.nav}>
-      <a href="#top" data-hover="" className={styles.logo} aria-label="Back to top">
+      <Link
+        href={onHome ? "#top" : "/"}
+        data-hover=""
+        className={styles.logo}
+        aria-label="Back to top"
+      >
         AN
-      </a>
+      </Link>
       <div className={styles.navLinks}>
-        {LINKS.map((link) => (
-          <a
+        {SCROLL_LINKS.map((link) => (
+          <Link
             key={link.id}
-            href={link.href}
+            href={homeHash(link.id)}
             data-navlink={link.id}
             className={styles.navLink}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
+        <Link
+          href="/behind-the-ads"
+          data-navpage=""
+          data-active={pathname === "/behind-the-ads" ? "true" : "false"}
+          className={styles.navLink}
+        >
+          BEHIND THE ADS
+        </Link>
+        <Link href={homeHash("talk")} data-navlink="talk" className={styles.navLink}>
+          LET&apos;S TALK
+        </Link>
       </div>
     </nav>
   );

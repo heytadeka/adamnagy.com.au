@@ -87,6 +87,28 @@ export const workItems = [
   },
 ] as const;
 
+export const behindTheAds = {
+  eyebrow: "BEHIND THE ADS",
+  intro: "A few things about the person behind the campaigns.",
+  move: {
+    tag: "2015 · THE MOVE",
+    text: "I'm Adam. Originally from Hungary, I moved to Australia in 2015. I completed my first MBA there, specialising in economics and business management. After moving to Australia, I somehow collected another MBA and an MPA. Don't ask.",
+  },
+  reading: {
+    tag: "BEFORE KIDS",
+    text: "Free time used to mean a good coffee from an independent café and a book at home. I've always been drawn to self-development, negotiation and behavioural psychology. Mike Michalowicz, Chris Voss, Robert Cialdini, Ray Dalio and Steven Bartlett are usually somewhere on my bookshelf.",
+  },
+  artie: "Then Artie arrived in 2023.",
+  playground: {
+    tag: "THE PLAYGROUND ERA",
+    text: "Books gradually gave way to playgrounds, park maps and snacks in every pocket. Luckily, Sydney is an amazing place to spend the day outside with little ones.",
+  },
+  otilia: "In 2025, our daughter Otília joined us.",
+  otiliaAside: "Tell me you're Hungarian without telling me you're Hungarian hey?!",
+  closer: "These days, life is louder and free time is harder to find.",
+  closerAccent: "I wouldn't trade it for anything.",
+};
+
 export const quote = {
   text: "Adam is a highly skilled, results-driven and proactive professional. His ability to combine technical eCommerce expertise with creative marketing strategies makes him a valuable asset to any team.",
   author: "CLAIRE BATES",

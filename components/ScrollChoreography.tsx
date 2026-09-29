@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Drives every continuous, scroll-position-derived visual: hero parallax,
@@ -8,8 +9,15 @@ import { useEffect } from "react";
  * These are written straight to the DOM (bypassing React state) because
  * they update on every scroll frame — the same tradeoff the original
  * vanilla prototype made, and for the same reason.
+ *
+ * Re-runs on every route change (via the `pathname` dependency): this
+ * component lives in the root layout, which persists across client-side
+ * navigations, so its DOM queries would otherwise go stale the moment you
+ * navigate from a page with a hero to one without, or vice versa.
  */
 export function ScrollChoreography() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -23,8 +31,13 @@ export function ScrollChoreography() {
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
 
-    let navShown = false;
-    let activeId: string | null = null;
+    // Pages without a hero to scroll past (anything but "/") have nothing to
+    // hide the nav behind, so it should just be visible from the start.
+    let navShown = !hero;
+    // Deliberately not `null`: `active` itself starts as `null` on a page
+    // with no matching sections, and `null !== null` would skip the first
+    // write below — leaving a previous page's stale data-active in the DOM.
+    let activeId: string | null | undefined = undefined;
     let ticking = false;
 
     function update() {
@@ -83,6 +96,7 @@ export function ScrollChoreography() {
       requestAnimationFrame(update);
     }
 
+    if (nav) nav.dataset.visible = navShown ? "true" : "false";
     update();
     window.addEventListener("scroll", onScrollOrResize, { passive: true });
     window.addEventListener("resize", onScrollOrResize);
@@ -90,7 +104,7 @@ export function ScrollChoreography() {
       window.removeEventListener("scroll", onScrollOrResize);
       window.removeEventListener("resize", onScrollOrResize);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
