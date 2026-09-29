@@ -49,7 +49,6 @@ export function BehindTheAds() {
 
           <Reveal className={styles.milestone}>
             <p className={styles.milestoneText}>{behindTheAds.otilia}</p>
-            <p className={styles.milestoneAside}>{behindTheAds.otiliaAside}</p>
           </Reveal>
 
           <Reveal variant="pop" className={styles.photoWrap}>

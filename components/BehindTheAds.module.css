@@ -102,15 +102,6 @@
   text-wrap: balance;
 }
 
-.milestoneAside {
-  margin: 0;
-  max-width: 48ch;
-  font-size: clamp(15px, 1.3vw, 18px);
-  line-height: 1.5;
-  font-weight: 300;
-  color: var(--text-mono);
-}
-
 .photoWrap {
   display: flex;
   justify-content: center;

@@ -104,7 +104,6 @@ export const behindTheAds = {
     text: "Books gradually gave way to playgrounds, park maps and snacks in every pocket. Luckily, Sydney is an amazing place to spend the day outside with little ones.",
   },
   otilia: "In 2025, our daughter Otília joined us.",
-  otiliaAside: "Tell me you're Hungarian without telling me you're Hungarian hey?!",
   closer: "These days, life is louder and free time is harder to find.",
   closerAccent: "I wouldn't trade it for anything.",
 };
