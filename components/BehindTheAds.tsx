@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { behindTheAds, siteConfig } from "@/lib/content";
@@ -49,6 +50,19 @@ export function BehindTheAds() {
           <Reveal className={styles.milestone}>
             <p className={styles.milestoneText}>{behindTheAds.otilia}</p>
             <p className={styles.milestoneAside}>{behindTheAds.otiliaAside}</p>
+          </Reveal>
+
+          <Reveal variant="pop" className={styles.photoWrap}>
+            <figure className={styles.polaroid}>
+              <Image
+                src="/images/family-park.webp"
+                alt="Adam on a walk through a Sydney park, carrying Otília and holding hands with Artur"
+                width={1125}
+                height={1500}
+                sizes="(max-width: 600px) 78vw, 420px"
+                className={styles.polaroidImg}
+              />
+            </figure>
           </Reveal>
 
           <div className="dashedRule" />
