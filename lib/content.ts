@@ -109,9 +109,9 @@ export const behindTheAds = {
 };
 
 export const quote = {
-  text: "Adam is a highly skilled, results-driven and proactive professional. His ability to combine technical eCommerce expertise with creative marketing strategies makes him a valuable asset to any team.",
-  author: "CLAIRE BATES",
-  role: "CEO, FONE KING & FLIGHT RISK",
+  text: "I'd hire me because I'm creative. I think outside the box, and I know how to break the pattern. After all, that's how you ended up reading this.",
+  author: "ADAM NAGY",
+  role: "ON WHY HE WOULD HIRE ADAM NAGY",
 };
 
 export const siteConfig = {
