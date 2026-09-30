@@ -29,3 +29,6 @@ next-env.d.ts
 
 # original design handoff download (design_handoff_adam_nagy_portfolio/ is kept)
 /*.zip
+
+# raw source footage — optimized copies live in public/videos and public/images
+/creatives
