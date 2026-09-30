@@ -21,7 +21,6 @@ export function LetsTalk() {
         </Reveal>
 
         <Reveal delay={160} className={styles.actionsRow}>
-          {/* TODO(adam): drop Adam-Nagy-CV.pdf into /public once it's ready */}
           <a href={siteConfig.cvHref} download data-hover="" className={styles.cvButton}>
             <span>DOWNLOAD CV</span>
             <span className={styles.cvIcon} aria-hidden="true">
