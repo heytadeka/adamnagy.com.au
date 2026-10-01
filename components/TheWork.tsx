@@ -11,7 +11,7 @@ export function TheWork() {
       <div className={styles.inner}>
         <div className={styles.headerGroup}>
           <Reveal className="eyebrow">
-            <span>02</span>
+            <span>03</span>
             <span />
             <span>THE WORK</span>
           </Reveal>

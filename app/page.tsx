@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <TheVideo />
       <WhoIAm />
       <TheWork />
-      <TheVideo />
       <Quote />
       <LetsTalk />
     </main>

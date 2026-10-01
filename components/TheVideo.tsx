@@ -78,7 +78,7 @@ export function TheVideo() {
     <section id="video" data-screen-label="The video" className={styles.section}>
       <div className={styles.inner}>
         <Reveal className="eyebrow">
-          <span>03</span>
+          <span>01</span>
           <span />
           <span>THE VIDEO</span>
         </Reveal>

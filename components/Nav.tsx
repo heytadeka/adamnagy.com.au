@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import styles from "./Nav.module.css";
 
 const SCROLL_LINKS = [
+  { id: "video", label: "THE VIDEO" },
   { id: "who", label: "WHO I AM" },
   { id: "work", label: "THE WORK" },
-  { id: "video", label: "THE VIDEO" },
 ];
 
 export function Nav() {

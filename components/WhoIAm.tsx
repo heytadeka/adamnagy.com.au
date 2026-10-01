@@ -11,7 +11,7 @@ export function WhoIAm() {
 
       <div className={styles.inner}>
         <Reveal className="eyebrow">
-          <span>01</span>
+          <span>02</span>
           <span />
           <span>WHO I AM</span>
         </Reveal>

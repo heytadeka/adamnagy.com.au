@@ -27,7 +27,7 @@ export function ScrollChoreography() {
     const nav = document.querySelector<HTMLElement>("[data-nav]");
     const navLinks = document.querySelectorAll<HTMLElement>("[data-navlink]");
     const bg = document.getElementById("bg-layer");
-    const sections = ["who", "work", "video", "talk"]
+    const sections = ["video", "who", "work", "talk"]
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
 
