@@ -48,7 +48,7 @@ export const workItems = [
     kicker: "CURRENT ROLE",
     meta: "MULTI-BRAND",
     title: "HAVERFORD BRANDS",
-    body: "Performance marketer managing paid media and helping shape content strategy across five consumer brands in four markets.",
+    body: "Own paid media on Google Ads and Meta Ads, direct the content strategy that feeds it, and run CRM and customer lifecycle strategy across 16 Klaviyo accounts.",
     metrics: [
       { value: "5", label: "BRANDS" },
       { value: "4", label: "MARKETS" },
