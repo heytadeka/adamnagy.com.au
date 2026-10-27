@@ -108,6 +108,107 @@ export const behindTheAds = {
   closerAccent: "I wouldn't trade it for anything.",
 };
 
+export type BuildProject = {
+  index: string;
+  kicker: string;
+  meta: string;
+  title: string;
+  lead: string;
+  built: readonly string[];
+  tags: readonly string[];
+  link: { href: string; label: string } | null;
+  visual:
+    | { type: "screenshot"; src: string; width: number; height: number; alt: string; url: string }
+    | { type: "planner"; ariaLabel: string; caption: string };
+};
+
+export const beyondTheAds: {
+  eyebrow: string;
+  description: string;
+  headline: readonly [string, string];
+  intro: string;
+  projects: readonly BuildProject[];
+  closer: string;
+  closerAccent: string;
+} = {
+  eyebrow: "BEYOND THE ADS",
+  description:
+    "Products and internal tools Adam Nagy has built with AI, from a self-serve SaaS to a CRM planning tool for 20 brands.",
+  headline: ["I FIND THE BOTTLENECK.", "THEN I BUILD THE FIX."],
+  intro:
+    "Beyond running campaigns, I build. A few products and internal tools I've made with AI, from a self-serve SaaS to a planning tool for 20 brands.",
+  projects: [
+    {
+      index: "01",
+      kicker: "SELF-SERVE SAAS",
+      meta: "LIVE · OCCASIONLY.APP",
+      title: "OCCASIONLY",
+      lead: "Built and launched a self-serve, multi-tenant SaaS for occasion-driven retailers such as bakers, florists and gift shops. It saves the birthdays and anniversaries customers shop for, then sends a branded reminder before each date so they reorder in time.",
+      built: [
+        "An embeddable, white-label widget",
+        "A daily reminder engine",
+        "A merchant dashboard with revenue tracking",
+        "Custom sender domains",
+        "An Omnisend integration, in private beta",
+      ],
+      tags: ["NEXT.JS", "TYPESCRIPT", "SUPABASE", "POSTGRES RLS", "RESEND", "STRIPE", "VERCEL"],
+      link: { href: "https://occasionly.app", label: "VISIT OCCASIONLY.APP" },
+      visual: {
+        type: "screenshot",
+        src: "/images/occasionly-home.webp",
+        width: 1280,
+        height: 756,
+        alt: "Screenshot of the Occasionly homepage: the headline 'Your customers forget. Occasionly reminds them.' beside a sample birthday reminder email.",
+        url: "occasionly.app",
+      },
+    },
+    {
+      index: "02",
+      kicker: "INTERNAL TOOL",
+      meta: "HAVERFORD BRANDS",
+      title: "CRM PLANNING TOOL",
+      lead: "An internal CRM strategy planning tool, built for 20 brands. Team members contribute to each brand's plan and build out its emails: the proposed structure, the wireframe, and the topics and copy.",
+      built: [
+        "One planning tool covering all 20 brands",
+        "Team members contribute to each brand's plan",
+        "Every email mapped out as structure, wireframe and copy",
+      ],
+      tags: ["VERCEL", "SUPABASE", "GITHUB"],
+      link: null,
+      visual: {
+        type: "planner",
+        ariaLabel:
+          "Illustration: twenty brand tiles feeding into one email planner, with sections for structure, wireframe, and topics and copy.",
+        caption: "ILLUSTRATION · THE REAL TOOL IS INTERNAL",
+      },
+    },
+    {
+      index: "03",
+      kicker: "AI PRODUCT",
+      meta: "LIVE · MAGNISCAN.IO",
+      title: "MAGNISCAN",
+      lead: "Designed and built a security scanner that helps vibe coders find exposed keys, databases and common vulnerabilities.",
+      built: [
+        "Scans apps built on Lovable, Bolt, Replit, Cursor, Claude Code and Codex",
+        "Findings explained in plain English, no code needed",
+        "Free to scan, with no sign-up required",
+      ],
+      tags: [],
+      link: { href: "https://magniscan.io", label: "VISIT MAGNISCAN.IO" },
+      visual: {
+        type: "screenshot",
+        src: "/images/magniscan-home.webp",
+        width: 1280,
+        height: 704,
+        alt: "Screenshot of the Magniscan homepage: the headline 'Your app is live. Is your site safe?' above a field to scan your site's URL.",
+        url: "magniscan.io",
+      },
+    },
+  ],
+  closer: "Have a bottleneck worth removing?",
+  closerAccent: "Let's talk.",
+};
+
 export const quote = {
   text: "I'd hire me because I'm creative. I think outside the box, and I know how to break the pattern. After all, that's how you ended up reading this.",
   author: "ADAM NAGY",

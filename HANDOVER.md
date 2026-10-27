@@ -26,6 +26,7 @@ Next.js 16 (App Router, Turbopack, React 19) + TypeScript + **CSS Modules** (del
 app/
   page.tsx                 homepage — assembles the section components below
   behind-the-ads/page.tsx  second page (personal "about" page)
+  beyond-the-ads/page.tsx  third page (AI-built products and internal tools)
   layout.tsx               root layout: fonts, metadata, mounts Nav/BackgroundLayer/
                             GrainOverlay/CustomCursor/ScrollChoreography globally
   icon.tsx                 generated favicon (next/og)
@@ -34,14 +35,16 @@ app/
                             global utility classes (.eyebrow, .dashedRule, .pillTag)
 components/
   One component + co-located *.module.css per section/piece (Hero, WhoIAm,
-  TheWork, TheVideo, Quote, LetsTalk, BehindTheAds, Nav, ...), plus shared
+  TheWork, TheVideo, Quote, LetsTalk, BehindTheAds, BeyondTheAds, Nav, ...), plus shared
   behaviour: Reveal (scroll-reveal), CountUp, ScrollChoreography, CustomCursor.
 lib/
   content.ts    ALL site copy lives here — stats, work items, hero lines, bio
                 paragraphs, the quote, nav labels via component defaults, etc.
   og-font.ts    reads the bundled Anton font for the OG image (see gotcha #2)
 public/
-  images/, videos/   the actual optimized media the site serves
+  images/, videos/   the actual optimized media the site serves (occasionly-home.webp
+                     and magniscan-home.webp are point-in-time screenshots of the live
+                     products, see the conventions below)
 assets/
   fonts/Anton-Regular.ttf   bundled font for app/opengraph-image.tsx (NOT public/
                             — it's a build-time asset, not meant to be served directly)
@@ -67,18 +70,27 @@ design_handoff_adam_nagy_portfolio/
 
 6. **The Claude Code browser-testing pane occasionally shows a stale screenshot** after a client-side navigation, after a viewport resize, or during active video playback — confirmed multiple times this session, via direct JS/DOM state checks, that the *app* was correct every time this happened (e.g. a progress bar screenshotted at ~65% width when `element.style.width` was actually `"0%"`). If a screenshot looks broken right after a nav/scroll/resize, re-check via `javascript_tool` (read `getBoundingClientRect()`, `.style`, etc. directly) before concluding it's a real bug. A `resize_window` nudge or a fresh `navigate` usually — but not always — clears it.
 
+7. **Replacing an image under the same filename keeps showing the old one.** Next's image optimizer caches by URL, so after overwriting e.g. `public/images/magniscan-home.webp` the dev server kept serving the previous version (it looked like a bad crop that was already fixed). Delete `.next/dev/cache/images` and reload, or use a new filename. Related: macOS `sips` can't do a top-anchored crop (it ignores `--cropOffset` and always centres), so the project screenshots were cropped and resized in one step with `cwebp -crop 0 0 <w> <h> -resize 1280 0` (origin is top-left).
+
+8. **A page-level `openGraph` replaces the layout's, including its share image.** `app/opengraph-image.tsx` only reaches pages that don't define their own `openGraph`. `/beyond-the-ads` names `images: ["/opengraph-image"]` explicitly (plus a `twitter` block); `/behind-the-ads` does not, so links to it currently share without an image. When adding a page, grep the built HTML (`.next/server/app/<page>.html`) for `og:image`.
+
+9. **Disk space.** On 2026-10-27 the Mac's data volume was at 100% (about 370 MB free of 228 GB; the big consumers were Claude's own Application Support folder, `~/Library/Caches` and `~/.cache`) and one clean `next build` died with `ENOSPC ... .next/trace`. An immediate retry passed. This probably also explains the erratic build times noted under Conventions. If it recurs, tell Adam to free space rather than looping retries, and never delete his caches or files without asking.
+
 ## Outstanding / not done
 
-- **CV PDF.** The "Download CV" button on the homepage links to `/Adam-Nagy-CV.pdf`, which doesn't exist yet. Drop the real file into `public/` under that exact name and it goes live with zero code changes.
 - **Custom domain.** Connect `adamnagy.com.au` in Vercel → Project → Domains, plus a DNS record at Adam's registrar, whenever he's ready. Not started.
-- **OG image for `/behind-the-ads`.** Only the homepage (`app/opengraph-image.tsx`) has a custom generated share image; the second page falls back to Next's defaults. Never requested, just noting the gap — same `assets/fonts/Anton-Regular.ttf` pattern would apply if this gets built.
-- **Alt text / transcript for the reel.** `TheVideo.tsx`'s `<video>` has a generic `aria-label` ("Adam Nagy — a personal introduction"); the clip has burned-in captions but no separate transcript for screen-reader users who can't see them. Not requested, noting for completeness.
+- **Share image for `/behind-the-ads`.** See gotcha #8; copy the metadata pattern from `app/beyond-the-ads/page.tsx`.
+- **Surchly.ai** is not on the site. Adam named it as a candidate for `/beyond-the-ads` but hasn't sent details. Magniscan's card on that page also has no stack tags (none provided).
+- **Haverford card on the homepage** still describes only paid media and content (five brands, four markets). Adam's fuller current-role line (Google and Meta ads, content strategy, CRM lifecycle across 16 Klaviyo accounts) was polished in chat but never applied, and the CRM planning tool isn't mentioned there.
+- **Reel accessibility.** `TheVideo.tsx`'s `<video>` has a generic `aria-label` and there's no transcript for screen-reader users. Not requested, noting for completeness.
 
 ## What's actually on the site right now
 
-Homepage (`/`): Hero ("I turn attention into revenue. / And ideas into working products.") → Who I Am (bio + 4 stats: $7.5M paid media managed, 12+ years, 2 countries, 2 kids) → The Work (Haverford Brands, Flight Risk, Magniscan.io, Ad Junkies) → The Video (real portrait-video reel, working custom player) → Quote (Adam's own self-pitch, not a client testimonial) → Let's Talk (CV button — see outstanding above — and email).
+Homepage (`/`): Hero ("I turn attention into revenue. / And ideas into working products.") → The Video (portrait reel with a custom player; moved up to sit right after the hero) → Who I Am (bio + 4 stats: $7.5M paid media managed, 12+ years, 2 countries, 2 kids) → The Work (Haverford Brands, Flight Risk, Magniscan.io, Ad Junkies, then a "See what else I've built" link to `/beyond-the-ads`) → Quote (Adam's own self-pitch, not a client testimonial) → Let's Talk (CV download and email; the CV PDF is in `public/`).
 
 Second page (`/behind-the-ads`): a lighter, personal page — chronological beats about Adam's move from Hungary, life before/after kids, closing with a polaroid-framed family photo that pops in on scroll and the line "I wouldn't trade it for anything."
+
+Third page (`/beyond-the-ads`, "Beyond the Ads"): the proof behind the hero's "ideas into working products" line. Headline "I find the bottleneck. Then I build the fix." Three project cards: **Occasionly** (live self-serve multi-tenant SaaS for occasion-driven retailers; framed screenshot, stack tags, link), **CRM Planning Tool** (Adam's internal tool at Haverford for planning emails across 20 brands: structure, wireframe, copy; it's internal so there's no link or screenshot, and it uses a CSS illustration instead, captioned as one) and **Magniscan** (live security scanner for AI-built apps; framed screenshot, link). It closes with "Have a bottleneck worth removing? Let's talk." and an email button. Copy is in `beyondTheAds` in `lib/content.ts`; the facts came from Adam, except Magniscan's three feature bullets, which are paraphrased from magniscan.io itself.
 
 ## Conventions to follow
 
@@ -87,7 +99,9 @@ Second page (`/behind-the-ads`): a lighter, personal page — chronological beat
 - **Shared micro-styles** (`eyebrow`, `dashedRule`, `pillTag`, `visuallyHidden`) are global classes in `app/globals.css`, referenced as plain string classNames — e.g. `className="eyebrow"`, not through a CSS-module `styles` import. Component-specific styles go in that component's own `.module.css`.
 - **Every glass/card surface** follows the same recipe: translucent background + `backdrop-filter` (webkit line first, gotcha #1) + 1px border + inset highlight box-shadow. Copy an existing one (e.g. `.card` in `WhoIAm.module.css`) rather than inventing a new treatment from scratch.
 - **Before shipping any change**: `npx eslint .` then `rm -rf .next && npx next build` locally — both must be clean (build times have been wildly inconsistent this session, from ~4s to ~15min, for reasons that look like host load rather than the code; be patient, don't assume a slow build is broken). Then commit, push to `main`, and **poll the live URL** for the specific change (a `curl` loop against a string unique to the change, or the asset URL directly) before telling anyone it's live — see gotcha #2 for why this matters.
-- **Attribution**: commits end with `Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>`.
+- **Numbers to keep consistent.** Homepage bio and Haverford card: five brands in four markets. The CRM planning tool: built for 20 brands. Those are different scopes, and it's worth confirming with Adam how they relate before putting them side by side.
+- **Project screenshots are point-in-time.** `occasionly-home.webp` and `magniscan-home.webp` are 1440-wide captures of each live homepage, taken with headless Chrome (`--headless=new --window-size=1440,900 --virtual-time-budget=9000` and a throwaway `--user-data-dir`), cropped above any cookie banner. Re-capture if either hero changes. Don't screenshot or link anything internal.
+- **Attribution**: commits end with a `Co-Authored-By: Claude ...` trailer; use whatever the session's attribution reminder specifies.
 
 ## Contact
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { workItems } from "@/lib/content";
 import styles from "./TheWork.module.css";
@@ -56,6 +57,15 @@ export function TheWork() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className={styles.moreRow}>
+          <Link href="/beyond-the-ads" data-hover="" className={styles.moreLink}>
+            <span>SEE WHAT ELSE I&apos;VE BUILT</span>
+            <span className={styles.moreIcon} aria-hidden="true">
+              →
+            </span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

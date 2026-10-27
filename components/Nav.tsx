@@ -37,6 +37,14 @@ export function Nav() {
           </Link>
         ))}
         <Link
+          href="/beyond-the-ads"
+          data-navpage=""
+          data-active={pathname === "/beyond-the-ads" ? "true" : "false"}
+          className={styles.navLink}
+        >
+          BEYOND THE ADS
+        </Link>
+        <Link
           href="/behind-the-ads"
           data-navpage=""
           data-active={pathname === "/behind-the-ads" ? "true" : "false"}
