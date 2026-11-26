@@ -48,33 +48,33 @@ export const workItems = [
     kicker: "CURRENT ROLE",
     meta: "MULTI-BRAND",
     title: "HAVERFORD BRANDS",
-    body: "Own paid media on Google Ads and Meta Ads, direct the content strategy that feeds it, and run CRM and customer lifecycle strategy across 16 Klaviyo accounts.",
+    body: "Own paid media on Google Ads and Meta Ads, direct the content strategy that feeds it, and run CRM and customer lifecycle strategy across 20 Klaviyo accounts.",
     metrics: [
+      { value: "~10×", label: "IN-SEASON ROAS" },
       { value: "5", label: "BRANDS" },
-      { value: "4", label: "MARKETS" },
     ],
     tags: [],
+    caseStudy: "/case-studies#haverford",
   },
   {
     index: "02",
     kicker: "BRAND LAUNCH",
     meta: "FROM ZERO",
     title: "FLIGHT RISK",
-    body: "Helped launch the ecommerce brand from zero, spanning paid media, creative direction and early growth.",
-    metrics: [
-      { value: "5.3×", label: "META ROAS" },
-      { value: "10×", label: "GOOGLE ROAS" },
-    ],
+    body: "Built the ad accounts from scratch and ran the launch, scaling from $70 a day to close to $20K a week in Meta and Google spend.",
+    metrics: [{ value: "6–7×", label: "BLENDED ROAS" }],
     tags: [],
+    caseStudy: "/case-studies#flight-risk",
   },
   {
     index: "03",
-    kicker: "AI PRODUCT",
-    meta: "CUSTOM BUILT",
-    title: "MAGNISCAN.IO",
-    body: "Designed and built a security scanner that helps vibe coders find exposed keys, databases and common vulnerabilities.",
-    metrics: [{ value: "0→1", label: "PRODUCT BUILD" }],
+    kicker: "HEAD OF DIGITAL",
+    meta: "2015 – 2023",
+    title: "THE BILLION ROSES",
+    body: "Eight years leading digital growth for a premium flower brand, including collaborations with Showpo, Tammy Hembrow, Meshki and White Runway.",
+    metrics: [{ value: "100K+", label: "SOCIAL FOLLOWERS" }],
     tags: [],
+    caseStudy: "/case-studies#the-billion-roses",
   },
   {
     index: "04",
@@ -84,8 +84,119 @@ export const workItems = [
     body: "Created a newsletter breaking down why ads make people stop, click and care.",
     metrics: [{ value: "1,500+", label: "SUBSCRIBERS" }],
     tags: [],
+    caseStudy: null,
   },
 ] as const;
+
+export type CaseStudy = {
+  id: string;
+  index: string;
+  kicker: string;
+  meta: string;
+  title: string;
+  lead: string;
+  situation: string;
+  did: readonly string[];
+  result: string;
+  metrics: readonly { value: string; label: string }[];
+  tags: readonly string[];
+};
+
+export const caseStudies: {
+  eyebrow: string;
+  description: string;
+  headline: readonly [string, string];
+  intro: string;
+  cases: readonly CaseStudy[];
+  closer: string;
+  closerAccent: string;
+} = {
+  eyebrow: "CASE STUDIES",
+  description:
+    "Performance marketing case studies from Adam Nagy: Haverford Brands, the Flight Risk launch and eight years at The Billion Roses.",
+  headline: ["THE CARDS GIVE YOU THE NUMBERS.", "THIS IS THE STORY BEHIND THEM."],
+  intro:
+    "Three roles, three very different problems: a multi-brand portfolio, a launch from zero, and eight years growing one brand.",
+  cases: [
+    {
+      id: "haverford",
+      index: "01",
+      kicker: "CURRENT ROLE",
+      meta: "SEPT 2025 – PRESENT",
+      title: "HAVERFORD BRANDS",
+      lead: "Performance marketing and email across a portfolio of sports and lifestyle brands, selling everything from niche industrial netting to professional golf cages in Australia, the US, UK and NZ.",
+      situation:
+        "Five brands with very different economics: depending on the product, cost per acquisition ranges from about $10 to $250. Each needs its own paid media, creative pipeline and email programme, all running at the same time.",
+      did: [
+        "Own Meta and Google Ads for all five brands, from account structure to daily optimisation on CPA, CPM and CTR.",
+        "Plan content from scratch, including scripting new ad concepts to find the next winning creative.",
+        "Watch CTR and CPM for the first signs of creative fatigue, and refresh before performance slides.",
+        "Run email strategy across 20 Klaviyo accounts.",
+        "Built an AI-assisted planning and reporting tool for the email programme, used by a team of six and pulling live data from Klaviyo.",
+      ],
+      result:
+        "In-season ROAS close to 10×. Creative refreshes timed off CTR and CPM cut CPA by at least 30%. The planning tool lets leadership follow every brand's emails from topic to send, and turned reporting into two or three clicks, saving 4–5 hours of back-and-forth a week.",
+      metrics: [
+        { value: "~10×", label: "IN-SEASON ROAS" },
+        { value: "30%+", label: "LOWER CPA AFTER CREATIVE REFRESHES" },
+        { value: "4–5H", label: "SAVED A WEEK BY THE EMAIL TOOL" },
+        { value: "20", label: "KLAVIYO ACCOUNTS" },
+      ],
+      tags: ["META ADS", "GOOGLE ADS", "CREATIVE STRATEGY", "KLAVIYO", "AI TOOLING"],
+    },
+    {
+      id: "flight-risk",
+      index: "02",
+      kicker: "BRAND LAUNCH",
+      meta: "NOV 2024 – FEB 2025",
+      title: "FLIGHT RISK",
+      lead: "Campaign lead for the launch of an ecommerce e-bike brand, covering both ecommerce and performance marketing.",
+      situation:
+        "A brand-new brand with no ad accounts, no data and no history, and three months to prove paid media could scale profitably.",
+      did: [
+        "Built the Meta and Google Ads accounts from scratch.",
+        "Set up the launch campaigns: prospecting and remarketing, audience segmentation, bidding strategy and creative testing.",
+        "Structured the Shopify storefront, from navigation and product architecture to the customer journey.",
+        "Scaled spend step by step while holding efficiency.",
+      ],
+      result:
+        "Scaled from $70 a day to close to $20K a week in combined Meta and Google spend, at a blended ROAS of 6–7×. In the launch phase, Meta ran at 5.3× and Google at 10×.",
+      metrics: [
+        { value: "~$20K", label: "WEEKLY SPEND, UP FROM $70 A DAY" },
+        { value: "6–7×", label: "BLENDED ROAS" },
+        { value: "5.3×", label: "META ROAS AT LAUNCH" },
+        { value: "10×", label: "GOOGLE ROAS AT LAUNCH" },
+      ],
+      tags: ["META ADS", "GOOGLE ADS", "SHOPIFY", "LAUNCH"],
+    },
+    {
+      id: "the-billion-roses",
+      index: "03",
+      kicker: "HEAD OF DIGITAL",
+      meta: "2015 – 2023",
+      title: "THE BILLION ROSES",
+      lead: "Eight years leading digital growth for one of Australia's premium luxury flower brands.",
+      situation:
+        "A premium brand that needed to keep growing online, with every digital channel, from paid media to social and email, sitting under one role.",
+      did: [
+        "Led influencer and brand collaborations with well-known Australian and international names, including Showpo, Tammy Hembrow, Meshki and White Runway.",
+        "Ran paid media on Meta and Google, plus email marketing.",
+        "Owned social media and the content strategy behind it.",
+        "Looked after conversion and tracking across the store: landing pages, testing, pixels and analytics.",
+      ],
+      result:
+        "Grew social to around 100–120K followers across platforms. A Valentine's Day collaboration with Showpo sold out the featured products within hours of going live, and brought a wave of new customers, followers and enquiries.",
+      metrics: [
+        { value: "100K+", label: "SOCIAL FOLLOWERS" },
+        { value: "HOURS", label: "TO SELL OUT THE SHOWPO VALENTINE'S DROP" },
+        { value: "8", label: "YEARS" },
+      ],
+      tags: ["INFLUENCER & BRAND COLLABS", "META ADS", "GOOGLE ADS", "EMAIL", "SOCIAL"],
+    },
+  ],
+  closer: "Want the detail behind any of these?",
+  closerAccent: "Let's talk.",
+};
 
 export const behindTheAds = {
   eyebrow: "BEHIND THE ADS",
@@ -133,10 +244,10 @@ export const beyondTheAds: {
 } = {
   eyebrow: "BEYOND THE ADS",
   description:
-    "Products and internal tools Adam Nagy has built with AI, from a self-serve SaaS to a CRM planning tool for 20 brands.",
+    "Products and internal tools Adam Nagy has built with AI, from a self-serve SaaS to an email planning tool for 20 Klaviyo accounts.",
   headline: ["I FIND THE BOTTLENECK.", "THEN I BUILD THE FIX."],
   intro:
-    "Beyond running campaigns, I build. A few products and internal tools I've made with AI, from a self-serve SaaS to a planning tool for 20 brands.",
+    "Beyond running campaigns, I build. A few products and internal tools I've made with AI, from a self-serve SaaS to a planning tool for 20 email accounts.",
   projects: [
     {
       index: "01",
@@ -167,18 +278,19 @@ export const beyondTheAds: {
       kicker: "INTERNAL TOOL",
       meta: "HAVERFORD BRANDS",
       title: "CRM PLANNING TOOL",
-      lead: "An internal CRM strategy planning tool, built for 20 brands. Team members contribute to each brand's plan and build out its emails: the proposed structure, the wireframe, and the topics and copy.",
+      lead: "An internal CRM planning and reporting tool for Haverford's email programme across 20 Klaviyo accounts. A team of six plan each brand's emails in it, from the topic and structure to the wireframe and copy, and leadership can follow every campaign from the first idea.",
       built: [
-        "One planning tool covering all 20 brands",
-        "Team members contribute to each brand's plan",
+        "One planning tool covering all 20 Klaviyo accounts",
+        "Used by a team of six, with live data pulled from Klaviyo",
         "Every email mapped out as structure, wireframe and copy",
+        "Reporting in two or three clicks, saving 4–5 hours a week",
       ],
       tags: ["VERCEL", "SUPABASE", "GITHUB"],
       link: null,
       visual: {
         type: "planner",
         ariaLabel:
-          "Illustration: twenty brand tiles feeding into one email planner, with sections for structure, wireframe, and topics and copy.",
+          "Illustration: twenty Klaviyo account tiles feeding into one email planner, with sections for structure, wireframe, and topics and copy.",
         caption: "ILLUSTRATION · THE REAL TOOL IS INTERNAL",
       },
     },

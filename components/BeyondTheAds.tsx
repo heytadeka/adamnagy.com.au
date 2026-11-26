@@ -39,7 +39,7 @@ function PlannerSchematic({ visual }: { visual: PlannerVisual }) {
     <figure className={styles.plannerFigure}>
       <div className={styles.planner} role="img" aria-label={visual.ariaLabel}>
         <div className={styles.brands} aria-hidden="true">
-          <span className={styles.plannerLabel}>20 BRANDS</span>
+          <span className={styles.plannerLabel}>20 ACCOUNTS</span>
           <div className={styles.tiles}>
             {BRAND_TILES.map((n) => (
               <span key={n} className={styles.tile} style={{ "--i": n } as CSSProperties}>

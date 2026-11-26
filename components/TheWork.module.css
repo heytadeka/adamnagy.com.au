@@ -178,6 +178,24 @@
 
 .moreRow {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.caseLink {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--text);
+  transition: color 0.3s;
+}
+
+.caseLink:hover {
+  color: var(--accent);
 }
 
 .moreLink {

@@ -35,6 +35,11 @@ export function TheWork() {
                 <div className={styles.body}>
                   <h3 className={styles.title}>{item.title}</h3>
                   <p className={styles.desc}>{item.body}</p>
+                  {item.caseStudy && (
+                    <Link href={item.caseStudy} data-hover="" className={styles.caseLink}>
+                      READ THE CASE STUDY <span aria-hidden="true">→</span>
+                    </Link>
+                  )}
                 </div>
                 <div className={item.tags.length > 0 ? styles.footer : styles.footerMetricsOnly}>
                   {item.metrics.map((m) => (
@@ -59,6 +64,12 @@ export function TheWork() {
         </div>
 
         <Reveal className={styles.moreRow}>
+          <Link href="/case-studies" data-hover="" className={styles.moreLink}>
+            <span>ALL CASE STUDIES</span>
+            <span className={styles.moreIcon} aria-hidden="true">
+              →
+            </span>
+          </Link>
           <Link href="/beyond-the-ads" data-hover="" className={styles.moreLink}>
             <span>SEE WHAT ELSE I&apos;VE BUILT</span>
             <span className={styles.moreIcon} aria-hidden="true">
