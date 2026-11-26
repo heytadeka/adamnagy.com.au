@@ -8,7 +8,6 @@ import styles from "./Nav.module.css";
 const SCROLL_LINKS = [
   { id: "video", label: "THE VIDEO" },
   { id: "who", label: "WHO I AM" },
-  { id: "work", label: "THE WORK" },
 ];
 
 export function Nav() {
@@ -100,6 +99,14 @@ export function Nav() {
             {link.label}
           </Link>
         ))}
+        <Link
+          href="/case-studies"
+          data-navpage=""
+          data-active={pathname === "/case-studies" ? "true" : "false"}
+          className={styles.navLink}
+        >
+          CASE STUDIES
+        </Link>
         <Link
           href="/beyond-the-ads"
           data-navpage=""

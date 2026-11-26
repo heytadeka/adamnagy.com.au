@@ -1,0 +1,122 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 0 clamp(20px, 5vw, 72px) clamp(40px, 8vh, 96px);
+}
+
+.band {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: clamp(22px, 3vw, 32px) clamp(22px, 3vw, 36px);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+}
+
+@media (min-width: 1000px) {
+  .band {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
+    gap: 36px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eyebrow {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.statement {
+  margin: 0;
+  font-family: var(--font-anton), sans-serif;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.itemName {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text);
+}
+
+.itemNote {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mono);
+}
+
+.cta {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 12px 12px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill-strong);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  color: var(--text);
+  transition: transform 0.4s var(--ease), border-color 0.4s;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: border-color 0.2s;
+  }
+  .cta:hover {
+    transform: none;
+  }
+}
+
+.ctaIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}

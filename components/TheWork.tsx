@@ -70,12 +70,6 @@ export function TheWork() {
               →
             </span>
           </Link>
-          <Link href="/beyond-the-ads" data-hover="" className={styles.moreLink}>
-            <span>SEE WHAT ELSE I&apos;VE BUILT</span>
-            <span className={styles.moreIcon} aria-hidden="true">
-              →
-            </span>
-          </Link>
         </Reveal>
       </div>
     </section>

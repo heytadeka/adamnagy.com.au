@@ -88,6 +88,17 @@ export const workItems = [
   },
 ] as const;
 
+export const buildBand = {
+  eyebrow: "BEYOND THE ADS",
+  statement: "And when something slows the team down, I build the fix.",
+  items: [
+    { name: "OCCASIONLY", note: "Self-serve SaaS" },
+    { name: "MAGNISCAN", note: "Security scanner" },
+    { name: "CRM PLANNING TOOL", note: "Internal, 20 Klaviyo accounts" },
+  ],
+  cta: "SEE WHAT I'VE BUILT",
+};
+
 export type CaseStudy = {
   id: string;
   index: string;
