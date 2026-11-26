@@ -142,6 +142,9 @@ export function CaseStudies() {
         <Link href="/" className={beyond.backLink}>
           ← BACK TO THE SITE
         </Link>
+        <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className={beyond.backLink}>
+          LINKEDIN ↗
+        </a>
         <span>
           © {year} {siteConfig.name.toUpperCase()}
         </span>

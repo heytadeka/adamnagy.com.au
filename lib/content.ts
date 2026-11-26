@@ -381,6 +381,7 @@ export const siteConfig = {
   description:
     "Performance marketing, ecommerce, content strategy and AI development. Open to the right in-house role.",
   email: "adam.nagy.mm@gmail.com",
+  linkedin: "https://www.linkedin.com/in/itsadamnagy/",
   location: "Sydney, Australia",
   cvHref: "/Adam-Nagy-CV.pdf",
 };

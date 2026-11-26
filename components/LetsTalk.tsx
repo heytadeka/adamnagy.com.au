@@ -32,6 +32,17 @@ export function LetsTalk() {
             <a href={`mailto:${siteConfig.email}`} data-hover="" className={styles.emailLink}>
               {siteConfig.email}
             </a>
+            , or find me on{" "}
+            <a
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-hover=""
+              className={styles.emailLink}
+            >
+              LinkedIn
+            </a>
+            .
           </p>
         </Reveal>
 
@@ -44,6 +55,9 @@ export function LetsTalk() {
 
         <div className={styles.footer}>
           <span>© {year} ADAM NAGY</span>
+          <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+            LINKEDIN ↗
+          </a>
           <span>{siteConfig.location.toUpperCase()}</span>
         </div>
       </div>

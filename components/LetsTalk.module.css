@@ -142,3 +142,12 @@
   letter-spacing: 0.14em;
   color: var(--text-mono-dim);
 }
+
+.footerLink {
+  color: var(--text-mono-dim);
+  transition: color 0.3s;
+}
+
+.footerLink:hover {
+  color: var(--accent);
+}

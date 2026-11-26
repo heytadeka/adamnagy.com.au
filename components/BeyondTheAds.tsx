@@ -212,6 +212,9 @@ export function BeyondTheAds() {
         <Link href="/" className={styles.backLink}>
           ← BACK TO THE SITE
         </Link>
+        <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className={styles.backLink}>
+          LINKEDIN ↗
+        </a>
         <span>
           © {year} {siteConfig.name.toUpperCase()}
         </span>
