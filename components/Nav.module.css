@@ -40,6 +40,19 @@
   }
 }
 
+/* Registered so the fade widths can animate in and out instead of popping. */
+@property --nav-fade-start {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --nav-fade-end {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
 .navLinks {
   display: flex;
   align-items: center;
@@ -48,6 +61,38 @@
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  /* Fade only the side that has more links to scroll to (set from Nav.tsx). */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--nav-fade-start),
+    #000 calc(100% - var(--nav-fade-end)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--nav-fade-start),
+    #000 calc(100% - var(--nav-fade-end)),
+    transparent 100%
+  );
+  transition:
+    --nav-fade-start 0.3s ease,
+    --nav-fade-end 0.3s ease;
+}
+
+.navLinks[data-fade-start="true"] {
+  --nav-fade-start: 22px;
+}
+
+.navLinks[data-fade-end="true"] {
+  --nav-fade-end: 26px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLinks {
+    transition: none;
+  }
 }
 
 .navLinks::-webkit-scrollbar {
@@ -82,4 +127,13 @@
 .navLink[data-active="true"] {
   background: var(--glass-highlight);
   color: var(--accent);
+}
+
+/* A touch tighter on phones so the next link visibly peeks out from under the
+   fade, which is what tells people the row scrolls. */
+@media (max-width: 480px) {
+  .navLink {
+    padding: 11px 11px;
+    letter-spacing: 0.1em;
+  }
 }
