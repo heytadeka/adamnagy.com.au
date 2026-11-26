@@ -100,6 +100,10 @@ export type CaseStudy = {
   result: string;
   metrics: readonly { value: string; label: string }[];
   tags: readonly string[];
+  gallery?: {
+    label: string;
+    items: readonly { src: string; width: number; height: number; alt: string; caption: string }[];
+  };
 };
 
 export const caseStudies: {
@@ -192,6 +196,39 @@ export const caseStudies: {
         { value: "8", label: "YEARS" },
       ],
       tags: ["INFLUENCER & BRAND COLLABS", "META ADS", "GOOGLE ADS", "EMAIL", "SOCIAL"],
+      gallery: {
+        label: "SOME OF THE COLLABS",
+        items: [
+          {
+            src: "/images/case-studies/tbr-showpo-valentines.webp",
+            width: 800,
+            height: 1091,
+            alt: "Showpo Instagram post: a model holding a clear box of red roses, captioned 'Have you entered our V-Day competition yet!?' and tagging @the.billion.roses. 7,773 likes.",
+            caption: "SHOWPO · VALENTINE'S DAY · 7,773 LIKES",
+          },
+          {
+            src: "/images/case-studies/tbr-meshki.webp",
+            width: 800,
+            height: 1139,
+            alt: "Meshki Instagram post: a clear box of white Billion Roses beside a YSL bag and Tom Ford body oil. 3,160+ likes.",
+            caption: "MESHKI · 3,160+ LIKES",
+          },
+          {
+            src: "/images/case-studies/tbr-showpo-hq.webp",
+            width: 800,
+            height: 1146,
+            alt: "Instagram post by @thelazyceo at Showpo HQ: 100 pink roses from The Billion Roses. 1,780 likes.",
+            caption: "@THELAZYCEO AT SHOWPO HQ · 1,780 LIKES",
+          },
+          {
+            src: "/images/case-studies/tbr-gold-box.webp",
+            width: 800,
+            height: 1056,
+            alt: "Instagram post by @sydneyfashionblogger: a gold Billion Roses box of gold roses next to a Tom Ford fragrance.",
+            caption: "@SYDNEYFASHIONBLOGGER",
+          },
+        ],
+      },
     },
   ],
   closer: "Want the detail behind any of these?",

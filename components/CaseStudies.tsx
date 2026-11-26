@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { caseStudies, siteConfig } from "@/lib/content";
@@ -90,6 +91,27 @@ export function CaseStudies() {
                     </div>
                   </div>
                 </div>
+
+                {c.gallery && (
+                  <div className={styles.gallery}>
+                    <span className={beyond.listLabel}>{c.gallery.label}</span>
+                    <div className={styles.galleryGrid}>
+                      {c.gallery.items.map((g) => (
+                        <figure key={g.src} className={styles.shot}>
+                          <Image
+                            src={g.src}
+                            alt={g.alt}
+                            width={g.width}
+                            height={g.height}
+                            sizes="(max-width: 899px) 45vw, 260px"
+                            className={styles.shotImg}
+                          />
+                          <figcaption className={styles.shotCaption}>{g.caption}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </article>
             </Reveal>
           ))}
